@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentación HTML & CSS</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Source+Code+Pro:wght@400;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-bracket">&lt;</span>WebDocs<span class="logo-bracket">/&gt;</span>
+      </div>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#html-section">HTML</a></li>
+          <li><a href="#css-section">CSS</a></li>
+          <li><a href="#css-syntax">Sintaxis</a></li>
+          <li><a href="#css-selectors">Selectores</a></li>
+          <li><a href="#css-insert">Inserción</a></li>
+          <li><a href="#css-properties">Propiedades</a></li>
+          <li><a href="#extra-section">Extra</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Abrir menú" onclick="toggleNav()">☰</button>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="#html-section" onclick="toggleNav()">HTML</a></li>
+      <li><a href="#css-section" onclick="toggleNav()">CSS</a></li>
+      <li><a href="#css-syntax" onclick="toggleNav()">Sintaxis</a></li>
+      <li><a href="#css-selectors" onclick="toggleNav()">Selectores</a></li>
+      <li><a href="#css-insert" onclick="toggleNav()">Inserción</a></li>
+      <li><a href="#css-properties" onclick="toggleNav()">Propiedades</a></li>
+      <li><a href="#extra-section" onclick="toggleNav()">Extra</a></li>
+    </ul>
+  </div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>HTML <span class="amp">&amp;</span> CSS</h1>
+    </div>
+    <div class="hero-decoration" aria-hidden="true">
+      <span class="deco-tag">&lt;html&gt;</span>
+      <span class="deco-tag">.clase</span>
+      <span class="deco-tag">#id</span>
+      <span class="deco-tag">&lt;/body&gt;</span>
+      <span class="deco-tag">{ }</span>
+    </div>
+  </section>
+
+  <main class="main-content">
+
+    <section id="html-section" class="doc-section">
+      <div class="section-label">Parte 01</div>
+      <h2 class="section-title">HTML</h2>
+      <p class="section-intro">HyperText Markup Language</p>
+
+      <div class="content-block">
+        <h3>¿Qué es HTML?</h3>
+        <p>
+          <strong>HTML</strong> (HyperText Markup Language) es el lenguaje estándar de marcado utilizado para crear y estructurar el contenido de páginas web.
+           No es un lenguaje de programación, sino un lenguaje de marcado que define la <em>semántica</em> y la <em>estructura</em> del contenido mediante el uso de etiquetas (<em>tags</em>).
+        </p>
+        <p>
+          Fue creado por Tim Berners-Lee en 1991 y es la base de toda página web. Los navegadores (Chrome, Firefox, Safari) interpretan el código HTML y lo convierten en la interfaz visual que los usuarios ven.
+           Junto con CSS y JavaScript, forma la tríada fundamental del desarrollo web front-end.
+        </p>
+        <ul class="feature-list">
+          <li>Define la <strong>estructura</strong> del documento (encabezados, párrafos, listas…)</li>
+          <li>Establece la <strong>semántica</strong> del contenido (qué significan los elementos)</li>
+          <li>Permite <strong>hipervínculos</strong> entre documentos (la «HT» de HyperText)</li>
+          <li>Integra <strong>multimedia</strong>: imágenes, audio, video y formularios</li>
+        </ul>
+      </div>
+
+      <div class="content-block">
+        <h3>Tabla de Etiquetas HTML</h3>
+        <div class="table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>Tag</th>
+                <th>Descripción</th>
+                <th>Ejemplo / Sintaxis</th>
+                <th>Video</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="group-row"><td colspan="4"> Estructura del documento</td></tr>
+              <tr>
+                <td><code>&lt;!DOCTYPE html&gt;</code></td>
+                <td>Declara el tipo de documento como HTML5.</td>
+                <td><code>&lt;!DOCTYPE html&gt;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;html&gt;</code></td>
+                <td>Elemento raíz del documento HTML.</td>
+                <td><code>&lt;html lang="es"&gt;...&lt;/html&gt;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;head&gt;</code></td>
+                <td>Contiene metadatos, título y enlaces a recursos externos.</td>
+                <td><code>&lt;head&gt;&lt;title&gt;Página&lt;/title&gt;&lt;/head&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;body&gt;</code></td>
+                <td>Contiene todo el contenido visible de la página.</td>
+                <td><code>&lt;body&gt;Contenido aquí&lt;/body&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;title&gt;</code></td>
+                <td>Define el título del documento (se muestra en la pestaña del navegador).</td>
+                <td><code>&lt;title&gt;Mi Sitio Web&lt;/title&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;meta&gt;</code></td>
+                <td>Proporciona metadatos: charset, viewport, descripción, etc.</td>
+                <td><code>&lt;meta charset="UTF-8"&gt;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;link&gt;</code></td>
+                <td>Vincula recursos externos, principalmente hojas de estilo CSS.</td>
+                <td><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;script&gt;</code></td>
+                <td>Incrusta o enlaza código JavaScript.</td>
+                <td><code>&lt;script src="app.js"&gt;&lt;/script&gt;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+
+              <tr class="group-row"><td colspan="4"> Semántica y layout</td></tr>
+              <tr>
+                <td><code>&lt;header&gt;</code></td>
+                <td>Cabecera de la página o de una sección.</td>
+                <td><code>&lt;header&gt;&lt;nav&gt;...&lt;/nav&gt;&lt;/header&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;nav&gt;</code></td>
+                <td>Define un bloque de enlaces de navegación.</td>
+                <td><code>&lt;nav&gt;&lt;ul&gt;...&lt;/ul&gt;&lt;/nav&gt;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;main&gt;</code></td>
+                <td>Contenido principal único del documento.</td>
+                <td><code>&lt;main&gt;Contenido principal&lt;/main&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;section&gt;</code></td>
+                <td>Agrupa contenido temáticamente relacionado.</td>
+                <td><code>&lt;section id="contacto"&gt;...&lt;/section&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;article&gt;</code></td>
+                <td>Contenido independiente y autocontenido (blog, noticia).</td>
+                <td><code>&lt;article&gt;&lt;h2&gt;Noticia&lt;/h2&gt;...&lt;/article&gt;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;aside&gt;</code></td>
+                <td>Contenido secundario relacionado (barra lateral, publicidad).</td>
+                <td><code>&lt;aside&gt;Artículos relacionados&lt;/aside&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;footer&gt;</code></td>
+                <td>Pie de página o de sección.</td>
+                <td><code>&lt;footer&gt;&copy; 2024&lt;/footer&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;div&gt;</code></td>
+                <td>Contenedor de bloque genérico sin semántica.</td>
+                <td><code>&lt;div class="contenedor"&gt;...&lt;/div&gt;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;span&gt;</code></td>
+                <td>Contenedor en línea genérico sin semántica.</td>
+                <td><code>&lt;span class="resaltado"&gt;texto&lt;/span&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+
+              <tr class="group-row"><td colspan="4"> Texto y tipografía</td></tr>
+              <tr>
+                <td><code>&lt;h1&gt; – &lt;h6&gt;</code></td>
+                <td>Encabezados de nivel 1 a 6 (h1 es el más importante).</td>
+                <td><code>&lt;h1&gt;Título principal&lt;/h1&gt;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;p&gt;</code></td>
+                <td>Define un párrafo de texto.</td>
+                <td><code>&lt;p&gt;Este es un párrafo.&lt;/p&gt;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;strong&gt;</code></td>
+                <td>Texto con énfasis fuerte (semánticamente importante, negrita visual).</td>
+                <td><code>&lt;strong&gt;Importante&lt;/strong&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;em&gt;</code></td>
+                <td>Texto con énfasis (semánticamente énfasis, cursiva visual).</td>
+                <td><code>&lt;em&gt;Énfasis&lt;/em&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;br&gt;</code></td>
+                <td>Inserta un salto de línea.</td>
+                <td><code>Línea 1&lt;br&gt;Línea 2</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;hr&gt;</code></td>
+                <td>Línea horizontal de separación temática.</td>
+                <td><code>&lt;hr&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;blockquote&gt;</code></td>
+                <td>Cita larga de una fuente externa.</td>
+                <td><code>&lt;blockquote cite="url"&gt;Cita&lt;/blockquote&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;code&gt;</code></td>
+                <td>Fragmento de código en línea.</td>
+                <td><code>&lt;code&gt;console.log()&lt;/code&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;pre&gt;</code></td>
+                <td>Texto preformateado (respeta espacios y saltos de línea).</td>
+                <td><code>&lt;pre&gt;  código  formateado&lt;/pre&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+
+              <tr class="group-row"><td colspan="4"> Listas</td></tr>
+              <tr>
+                <td><code>&lt;ul&gt;</code></td>
+                <td>Lista desordenada (viñetas).</td>
+                <td><code>&lt;ul&gt;&lt;li&gt;Elemento&lt;/li&gt;&lt;/ul&gt;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;ol&gt;</code></td>
+                <td>Lista ordenada (números o letras).</td>
+                <td><code>&lt;ol&gt;&lt;li&gt;Primero&lt;/li&gt;&lt;/ol&gt;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;li&gt;</code></td>
+                <td>Elemento de una lista (ul u ol).</td>
+                <td><code>&lt;li&gt;Elemento de lista&lt;/li&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+
+              <tr class="group-row"><td colspan="4"> Vínculos y multimedia</td></tr>
+              <tr>
+                <td><code>&lt;a&gt;</code></td>
+                <td>Hipervínculo; enlaza a otra página, sección o recurso.</td>
+                <td><code>&lt;a href="https://ejemplo.com" target="_blank"&gt;Ir&lt;/a&gt;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;img&gt;</code></td>
+                <td>Muestra una imagen. Es un elemento vacío (no tiene cierre).</td>
+                <td><code>&lt;img src="foto.jpg" alt="Descripción"&gt;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;video&gt;</code></td>
+                <td>Incrusta un archivo de video en la página.</td>
+                <td><code>&lt;video src="clip.mp4" controls&gt;&lt;/video&gt;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;audio&gt;</code></td>
+                <td>Incrusta un archivo de audio.</td>
+                <td><code>&lt;audio src="song.mp3" controls&gt;&lt;/audio&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;iframe&gt;</code></td>
+                <td>Incrusta otro documento HTML dentro de la página.</td>
+                <td><code>&lt;iframe src="mapa.html" width="600"&gt;&lt;/iframe&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+
+              <tr class="group-row"><td colspan="4"> Tablas</td></tr>
+              <tr>
+                <td><code>&lt;table&gt;</code></td>
+                <td>Contenedor principal de una tabla.</td>
+                <td><code>&lt;table&gt;...&lt;/table&gt;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;thead&gt;</code></td>
+                <td>Cabecera de la tabla (agrupa filas de encabezado).</td>
+                <td><code>&lt;thead&gt;&lt;tr&gt;...&lt;/tr&gt;&lt;/thead&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;tbody&gt;</code></td>
+                <td>Cuerpo de la tabla (filas de datos).</td>
+                <td><code>&lt;tbody&gt;&lt;tr&gt;...&lt;/tr&gt;&lt;/tbody&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;tr&gt;</code></td>
+                <td>Fila de tabla.</td>
+                <td><code>&lt;tr&gt;&lt;td&gt;Celda&lt;/td&gt;&lt;/tr&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;th&gt;</code></td>
+                <td>Celda de encabezado (bold y centrada por defecto).</td>
+                <td><code>&lt;th scope="col"&gt;Nombre&lt;/th&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;td&gt;</code></td>
+                <td>Celda de datos estándar.</td>
+                <td><code>&lt;td colspan="2"&gt;Datos&lt;/td&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+
+              <tr class="group-row"><td colspan="4"> Formularios</td></tr>
+              <tr>
+                <td><code>&lt;form&gt;</code></td>
+                <td>Contenedor de un formulario interactivo.</td>
+                <td><code>&lt;form action="/enviar" method="POST"&gt;&lt;/form&gt;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;input&gt;</code></td>
+                <td>Campo de entrada de datos (texto, email, checkbox, radio…).</td>
+                <td><code>&lt;input type="text" placeholder="Nombre"&gt;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;label&gt;</code></td>
+                <td>Etiqueta descriptiva asociada a un campo de formulario.</td>
+                <td><code>&lt;label for="email"&gt;Correo:&lt;/label&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;textarea&gt;</code></td>
+                <td>Área de texto multilínea.</td>
+                <td><code>&lt;textarea rows="4" cols="40"&gt;&lt;/textarea&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;button&gt;</code></td>
+                <td>Botón interactivo clicable.</td>
+                <td><code>&lt;button type="submit"&gt;Enviar&lt;/button&gt;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>&lt;select&gt;</code></td>
+                <td>Lista desplegable de opciones.</td>
+                <td><code>&lt;select&gt;&lt;option value="1"&gt;Uno&lt;/option&gt;&lt;/select&gt;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="css-section" class="doc-section alt-bg">
+      <div class="section-label">Parte 02</div>
+      <h2 class="section-title">CSS</h2>
+      <p class="section-intro">Cascading Style Sheets</p>
+
+      <div class="content-block">
+        <h3>¿Qué es CSS?</h3>
+        <p>
+          <strong>CSS</strong> (Cascading Style Sheets / Hojas de Estilo en Cascada) es el lenguaje utilizado para describir la 
+          <em>presentación</em> de un documento HTML. Controla colores, tipografía, espaciado, posicionamiento, animaciones y cómo se adapta el diseño a distintos tamaños de pantalla.
+        </p>
+        <p>
+          El término «cascada» hace referencia al orden en que las reglas se aplican: cuando múltiples reglas afectan a un mismo elemento, el navegador determina cuál prevalece según la 
+          <strong>especificidad</strong>, el <strong>orden de aparición</strong> y la <strong>herencia</strong>.
+        </p>
+        <ul class="feature-list">
+          <li>Separa el <strong>contenido</strong> (HTML) de la <strong>presentación</strong> (CSS)</li>
+          <li>Permite reutilizar estilos en múltiples páginas</li>
+          <li>Controla <strong>responsividad</strong> y adaptación a diferentes dispositivos</li>
+          <li>Soporta <strong>animaciones</strong> y <strong>transiciones</strong> sin JavaScript</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="css-syntax" class="doc-section">
+      <div class="section-label">Parte 02 · A</div>
+      <h2 class="section-title">Sintaxis CSS</h2>
+
+      <div class="content-block">
+        <h3>Estructura de una regla CSS</h3>
+        <p>Una regla CSS se compone de un <strong>selector</strong> y un <strong>bloque de declaraciones</strong>. Cada declaración contiene una <strong>propiedad</strong> y un <strong>valor</strong> separados por dos puntos, y las declaraciones se separan con punto y coma.</p>
+
+        <div class="syntax-diagram">
+          <div class="syntax-line">
+            <span class="syn-selector">h1</span>
+            <span class="syn-brace"> {</span>
+          </div>
+          <div class="syntax-line syn-indent">
+            <span class="syn-property">  color</span>
+            <span class="syn-colon">:</span>
+            <span class="syn-value"> #e63946</span>
+            <span class="syn-semi">;</span>
+          </div>
+          <div class="syntax-line syn-indent">
+            <span class="syn-property">  font-size</span>
+            <span class="syn-colon">:</span>
+            <span class="syn-value"> 2rem</span>
+            <span class="syn-semi">;</span>
+          </div>
+          <div class="syntax-line syn-indent">
+            <span class="syn-property">  margin-bottom</span>
+            <span class="syn-colon">:</span>
+            <span class="syn-value"> 1rem</span>
+            <span class="syn-semi">;</span>
+          </div>
+          <div class="syntax-line">
+            <span class="syn-brace">}</span>
+          </div>
+
+          <div class="syntax-legend">
+            <span class="leg-item"><span class="leg-dot sel-dot"></span>Selector</span>
+            <span class="leg-item"><span class="leg-dot prop-dot"></span>Propiedad</span>
+            <span class="leg-item"><span class="leg-dot val-dot"></span>Valor</span>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>Componente</th>
+                <th>Descripción</th>
+                <th>Ejemplo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Selector</strong></td>
+                <td>Indica <em>qué elemento(s)</em> HTML serán afectados.</td>
+                <td><code>h1</code>, <code>.clase</code>, <code>#id</code></td>
+              </tr>
+              <tr>
+                <td><strong>Bloque { }</strong></td>
+                <td>Agrupa las declaraciones que se aplican al selector.</td>
+                <td><code>{ ... }</code></td>
+              </tr>
+              <tr>
+                <td><strong>Propiedad</strong></td>
+                <td>La característica que se quiere modificar.</td>
+                <td><code>color</code>, <code>font-size</code></td>
+              </tr>
+              <tr>
+                <td><strong>Valor</strong></td>
+                <td>El valor asignado a la propiedad.</td>
+                <td><code>#ff0000</code>, <code>2rem</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="css-selectors" class="doc-section alt-bg">
+      <div class="section-label">Parte 02 · B</div>
+      <h2 class="section-title">Tipos de Selectores</h2>
+
+      <div class="content-block">
+
+        <h3>1. Selectores Simples</h3>
+        <p>Seleccionan elementos directamente por su tipo, clase, ID o de forma universal.</p>
+        <div class="table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr><th>Tipo</th><th>Descripción</th><th>Ejemplo de código</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Elemento</strong></td>
+                <td>Selecciona todos los elementos del tipo indicado.</td>
+                <td><code>p { color: gray; }</code></td>
+              </tr>
+              <tr>
+                <td><strong>Clase (.)</strong></td>
+                <td>Selecciona todos los elementos con esa clase.</td>
+                <td><code>.destacado { background: yellow; }</code></td>
+              </tr>
+              <tr>
+                <td><strong>ID (#)</strong></td>
+                <td>Selecciona el único elemento con ese identificador.</td>
+                <td><code>#header { height: 80px; }</code></td>
+              </tr>
+              <tr>
+                <td><strong>Universal (*)</strong></td>
+                <td>Selecciona todos los elementos del documento.</td>
+                <td><code>* { box-sizing: border-box; }</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>2. Selectores Combinadores</h3>
+        <p>Combinan dos selectores para describir una relación de parentesco entre elementos.</p>
+        <div class="table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr><th>Tipo</th><th>Símbolo</th><th>Descripción</th><th>Ejemplo</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Descendiente</strong></td>
+                <td><code> </code> (espacio)</td>
+                <td>Cualquier elemento descendiente, sin importar el nivel.</td>
+                <td><code>div p { color: blue; }</code></td>
+              </tr>
+              <tr>
+                <td><strong>Hijo directo</strong></td>
+                <td><code>&gt;</code></td>
+                <td>Solo el hijo directo (primer nivel).</td>
+                <td><code>ul &gt; li { list-style: none; }</code></td>
+              </tr>
+              <tr>
+                <td><strong>Hermano adyacente</strong></td>
+                <td><code>+</code></td>
+                <td>El elemento hermano inmediatamente siguiente.</td>
+                <td><code>h2 + p { margin-top: 0; }</code></td>
+              </tr>
+              <tr>
+                <td><strong>Hermano general</strong></td>
+                <td><code>~</code></td>
+                <td>Todos los hermanos siguientes del mismo padre.</td>
+                <td><code>h2 ~ p { color: gray; }</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>3. Selectores de Pseudoclase</h3>
+        <p>Seleccionan elementos en un <em>estado</em> específico o según su posición.</p>
+        <div class="table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr><th>Pseudoclase</th><th>Descripción</th><th>Ejemplo</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>:hover</code></td>
+                <td>Cuando el cursor está sobre el elemento.</td>
+                <td><code>a:hover { color: red; }</code></td>
+              </tr>
+              <tr>
+                <td><code>:focus</code></td>
+                <td>Cuando el elemento tiene el foco (ej. campo activo).</td>
+                <td><code>input:focus { border-color: blue; }</code></td>
+              </tr>
+              <tr>
+                <td><code>:nth-child(n)</code></td>
+                <td>Selecciona el enésimo hijo de su padre.</td>
+                <td><code>tr:nth-child(even) { background: #f0f0f0; }</code></td>
+              </tr>
+              <tr>
+                <td><code>:first-child</code></td>
+                <td>Primer hijo de su elemento padre.</td>
+                <td><code>li:first-child { font-weight: bold; }</code></td>
+              </tr>
+              <tr>
+                <td><code>:last-child</code></td>
+                <td>Último hijo de su elemento padre.</td>
+                <td><code>li:last-child { border: none; }</code></td>
+              </tr>
+              <tr>
+                <td><code>:not(selector)</code></td>
+                <td>Selecciona todos los que NO coincidan con el selector dado.</td>
+                <td><code>p:not(.especial) { color: gray; }</code></td>
+              </tr>
+              <tr>
+                <td><code>:checked</code></td>
+                <td>Inputs de tipo checkbox o radio que estén marcados.</td>
+                <td><code>input:checked + label { color: green; }</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>4. Selectores de Pseudoelemento</h3>
+        <p>Permiten estilizar una <em>parte</em> específica de un elemento.</p>
+        <div class="table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr><th>Pseudoelemento</th><th>Descripción</th><th>Ejemplo</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>::before</code></td>
+                <td>Inserta contenido generado antes del contenido del elemento.</td>
+                <td><code>h2::before { content: "→ "; }</code></td>
+              </tr>
+              <tr>
+                <td><code>::after</code></td>
+                <td>Inserta contenido generado después del contenido del elemento.</td>
+                <td><code>.precio::after { content: " MXN"; }</code></td>
+              </tr>
+              <tr>
+                <td><code>::first-line</code></td>
+                <td>Estiliza solo la primera línea de un bloque de texto.</td>
+                <td><code>p::first-line { font-weight: bold; }</code></td>
+              </tr>
+              <tr>
+                <td><code>::first-letter</code></td>
+                <td>Estiliza solo la primera letra (efecto capitular).</td>
+                <td><code>p::first-letter { font-size: 2em; float: left; }</code></td>
+              </tr>
+              <tr>
+                <td><code>::selection</code></td>
+                <td>Estiliza el texto seleccionado por el usuario.</td>
+                <td><code>::selection { background: #ffd700; }</code></td>
+              </tr>
+              <tr>
+                <td><code>::placeholder</code></td>
+                <td>Estiliza el texto de marcador de posición en inputs.</td>
+                <td><code>input::placeholder { color: #aaa; font-style: italic; }</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>5. Selectores de Atributo</h3>
+        <p>Seleccionan elementos según la presencia o valor de un atributo HTML.</p>
+        <div class="table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr><th>Selector</th><th>Descripción</th><th>Ejemplo</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>[atributo]</code></td>
+                <td>Elementos que poseen el atributo (independientemente del valor).</td>
+                <td><code>[disabled] { opacity: 0.5; }</code></td>
+              </tr>
+              <tr>
+                <td><code>[atributo="valor"]</code></td>
+                <td>Elementos cuyo atributo tiene exactamente ese valor.</td>
+                <td><code>[type="submit"] { background: green; }</code></td>
+              </tr>
+              <tr>
+                <td><code>[atributo^="valor"]</code></td>
+                <td>El valor del atributo <em>empieza</em> con la cadena indicada.</td>
+                <td><code>[href^="https"] { color: green; }</code></td>
+              </tr>
+              <tr>
+                <td><code>[atributo$="valor"]</code></td>
+                <td>El valor del atributo <em>termina</em> con la cadena indicada.</td>
+                <td><code>[src$=".pdf"] { icon: pdf; }</code></td>
+              </tr>
+              <tr>
+                <td><code>[atributo*="valor"]</code></td>
+                <td>El valor del atributo <em>contiene</em> la cadena indicada.</td>
+                <td><code>[class*="btn"] { cursor: pointer; }</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="css-insert" class="doc-section">
+      <div class="section-label">Parte 02 · C</div>
+      <h2 class="section-title">Formas de Insertar CSS</h2>
+
+      <div class="content-block">
+        <h3>1. CSS Externo</h3>
+        <p>Se escribe en un archivo <code>.css</code> separado y se enlaza desde el HTML con la etiqueta <code>&lt;link&gt;</code> en el <code>&lt;head&gt;</code>. Es el método <strong>recomendado</strong> porque permite reutilizar estilos en múltiples páginas.</p>
+        <pre class="code-block"><code><span class="cm">&lt;!-- En el archivo HTML --&gt;</span>
+<span class="ct">&lt;head&gt;</span>
+  <span class="ct">&lt;link</span> <span class="ca">rel</span>=<span class="cv">"stylesheet"</span> <span class="ca">href</span>=<span class="cv">"estilos.css"</span><span class="ct">&gt;</span>
+<span class="ct">&lt;/head&gt;</span>
+
+<span class="cm">/* En el archivo estilos.css */</span>
+<span class="cs">body</span> {
+  <span class="cp">background-color</span>: <span class="cv">#f5f5f5</span>;
+  <span class="cp">font-family</span>: <span class="cv">sans-serif</span>;
+}</code></pre>
+
+        <h3>2. CSS Interno (Embebido)</h3>
+        <p>Se escribe dentro de una etiqueta <code>&lt;style&gt;</code> en el <code>&lt;head&gt;</code>. Útil para páginas pequeñas o estilos específicos de una sola página.</p>
+        <pre class="code-block"><code><span class="ct">&lt;head&gt;</span>
+  <span class="ct">&lt;style&gt;</span>
+    <span class="cs">h1</span> {
+      <span class="cp">color</span>: <span class="cv">#333</span>;
+      <span class="cp">text-align</span>: <span class="cv">center</span>;
+    }
+    <span class="cs">.contenedor</span> {
+      <span class="cp">max-width</span>: <span class="cv">1200px</span>;
+      <span class="cp">margin</span>: <span class="cv">0 auto</span>;
+    }
+  <span class="ct">&lt;/style&gt;</span>
+<span class="ct">&lt;/head&gt;</span></code></pre>
+
+        <h3>3. CSS en Línea (Inline)</h3>
+        <p>Se aplica directamente en el atributo <code>style</code> de la etiqueta HTML. Solo afecta a ese elemento específico. Se usa en casos muy puntuales; generalmente <strong>no recomendado</strong> porque mezcla contenido y presentación.</p>
+        <pre class="code-block"><code><span class="ct">&lt;p</span> <span class="ca">style</span>=<span class="cv">"color: red; font-size: 18px; font-weight: bold;"</span><span class="ct">&gt;</span>
+  Este párrafo tiene estilo en línea.
+<span class="ct">&lt;/p&gt;</span>
+
+<span class="ct">&lt;button</span> <span class="ca">style</span>=<span class="cv">"background: #007bff; color: white; padding: 8px 16px;"</span><span class="ct">&gt;</span>
+  Botón estilizado
+<span class="ct">&lt;/button&gt;</span></code></pre>
+
+        <div class="table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr><th>Método</th><th>Ventaja</th><th>Desventaja</th><th>Cuándo usarlo</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Externo</strong></td>
+                <td>Reutilizable, limpio, caché del navegador</td>
+                <td>Requiere petición HTTP adicional</td>
+                <td>Siempre (proyectos reales)</td>
+              </tr>
+              <tr>
+                <td><strong>Interno</strong></td>
+                <td>Sin petición adicional</td>
+                <td>No reutilizable entre páginas</td>
+                <td>Prototipado rápido, email HTML</td>
+              </tr>
+              <tr>
+                <td><strong>Inline</strong></td>
+                <td>Máxima especificidad</td>
+                <td>Difícil de mantener, mezcla preocupaciones</td>
+                <td>Casos muy excepcionales o JS dinámico</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="css-properties" class="doc-section alt-bg">
+      <div class="section-label">Parte 02 · D</div>
+      <h2 class="section-title">Propiedades CSS</h2>
+      <p class="section-intro">Las más utilizadas, organizadas por categoría</p>
+
+      <div class="content-block">
+
+        <h3> Texto y Fuente</h3>
+        <div class="table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr><th>Propiedad</th><th>Descripción</th><th>Ejemplo</th><th>Video</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>color</code></td>
+                <td>Color del texto.</td>
+                <td><code>color: #333;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>font-family</code></td>
+                <td>Familia tipográfica del texto.</td>
+                <td><code>font-family: 'Lora', serif;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>font-size</code></td>
+                <td>Tamaño de la fuente.</td>
+                <td><code>font-size: 1.2rem;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>font-weight</code></td>
+                <td>Grosor de la fuente (normal, bold, 100–900).</td>
+                <td><code>font-weight: 700;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>font-style</code></td>
+                <td>Estilo (normal, italic, oblique).</td>
+                <td><code>font-style: italic;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>text-align</code></td>
+                <td>Alineación horizontal del texto.</td>
+                <td><code>text-align: center;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>text-decoration</code></td>
+                <td>Decoraciones: subrayado, tachado, etc.</td>
+                <td><code>text-decoration: underline;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>line-height</code></td>
+                <td>Altura de línea (interlineado).</td>
+                <td><code>line-height: 1.6;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>letter-spacing</code></td>
+                <td>Espacio entre caracteres.</td>
+                <td><code>letter-spacing: 0.05em;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>text-transform</code></td>
+                <td>Transforma mayúsculas/minúsculas (uppercase, lowercase, capitalize).</td>
+                <td><code>text-transform: uppercase;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3> Fondo y Color</h3>
+        <div class="table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr><th>Propiedad</th><th>Descripción</th><th>Ejemplo</th><th>Video</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>background-color</code></td>
+                <td>Color de fondo del elemento.</td>
+                <td><code>background-color: #fafafa;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>background-image</code></td>
+                <td>Imagen o gradiente de fondo.</td>
+                <td><code>background-image: url('bg.jpg');</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>background-size</code></td>
+                <td>Tamaño de la imagen de fondo (cover, contain, %).</td>
+                <td><code>background-size: cover;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>background-position</code></td>
+                <td>Posición inicial de la imagen de fondo.</td>
+                <td><code>background-position: center;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>opacity</code></td>
+                <td>Transparencia del elemento (0 = invisible, 1 = opaco).</td>
+                <td><code>opacity: 0.8;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3> Modelo de Caja (Box Model)</h3>
+        <div class="table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr><th>Propiedad</th><th>Descripción</th><th>Ejemplo</th><th>Video</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>width</code></td>
+                <td>Ancho del elemento.</td>
+                <td><code>width: 300px;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>height</code></td>
+                <td>Alto del elemento.</td>
+                <td><code>height: 200px;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>margin</code></td>
+                <td>Espacio exterior alrededor del elemento.</td>
+                <td><code>margin: 16px auto;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>padding</code></td>
+                <td>Espacio interior entre el contenido y el borde.</td>
+                <td><code>padding: 12px 24px;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>border</code></td>
+                <td>Borde del elemento (grosor, estilo, color).</td>
+                <td><code>border: 1px solid #ccc;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>border-radius</code></td>
+                <td>Redondez de las esquinas.</td>
+                <td><code>border-radius: 8px;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>box-sizing</code></td>
+                <td>Controla si padding/border se incluyen en el width/height.</td>
+                <td><code>box-sizing: border-box;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>box-shadow</code></td>
+                <td>Sombra del elemento.</td>
+                <td><code>box-shadow: 0 4px 12px rgba(0,0,0,0.1);</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3> Posicionamiento y Layout</h3>
+        <div class="table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr><th>Propiedad</th><th>Descripción</th><th>Ejemplo</th><th>Video</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>display</code></td>
+                <td>Tipo de renderizado: block, inline, flex, grid, none…</td>
+                <td><code>display: flex;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>position</code></td>
+                <td>Esquema de posicionamiento: static, relative, absolute, fixed, sticky.</td>
+                <td><code>position: absolute;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>top / right / bottom / left</code></td>
+                <td>Desplazamiento desde cada lado (con position ≠ static).</td>
+                <td><code>top: 0; right: 0;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>z-index</code></td>
+                <td>Orden de apilamiento en el eje Z (mayor valor = encima).</td>
+                <td><code>z-index: 100;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>overflow</code></td>
+                <td>Qué ocurre cuando el contenido desborda: visible, hidden, scroll, auto.</td>
+                <td><code>overflow: hidden;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>flex-direction</code></td>
+                <td>Dirección del eje principal en Flexbox.</td>
+                <td><code>flex-direction: row;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>justify-content</code></td>
+                <td>Alineación de ítems en el eje principal (Flexbox/Grid).</td>
+                <td><code>justify-content: space-between;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>align-items</code></td>
+                <td>Alineación de ítems en el eje cruzado (Flexbox/Grid).</td>
+                <td><code>align-items: center;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>gap</code></td>
+                <td>Espacio entre ítems en Flexbox o Grid.</td>
+                <td><code>gap: 16px;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>grid-template-columns</code></td>
+                <td>Define columnas en un Grid CSS.</td>
+                <td><code>grid-template-columns: repeat(3, 1fr);</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+              <tr>
+                <td><code>cursor</code></td>
+                <td>Tipo de cursor al pasar sobre el elemento.</td>
+                <td><code>cursor: pointer;</code></td>
+                <td><span class="no-video">No disponible</span></td>
+              </tr>
+              <tr>
+                <td><code>transition</code></td>
+                <td>Animación suave al cambiar una propiedad.</td>
+                <td><code>transition: all 0.3s ease;</code></td>
+                <td><span class="video-badge">▶ Ver video</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="extra-section" class="doc-section">
+      <div class="section-label">Extra</div>
+      <h2 class="section-title">Temas Avanzados</h2>
+
+      <div class="content-block">
+
+        <h3> Especificidad en CSS</h3>
+        <p>La <strong>especificidad</strong> determina qué regla CSS «gana» cuando múltiples reglas apuntan al mismo elemento. Se calcula como un valor de 4 niveles: <code>(a, b, c, d)</code>.</p>
+
+        <div class="specificity-grid">
+          <div class="spec-card" data-level="a">
+            <div class="spec-value">1,0,0,0</div>
+            <div class="spec-name">Inline style</div>
+            <div class="spec-ex"><code>style="..."</code></div>
+          </div>
+          <div class="spec-card" data-level="b">
+            <div class="spec-value">0,1,0,0</div>
+            <div class="spec-name">ID</div>
+            <div class="spec-ex"><code>#id</code></div>
+          </div>
+          <div class="spec-card" data-level="c">
+            <div class="spec-value">0,0,1,0</div>
+            <div class="spec-name">Clase / Pseudoclase / Atributo</div>
+            <div class="spec-ex"><code>.clase · :hover · [attr]</code></div>
+          </div>
+          <div class="spec-card" data-level="d">
+            <div class="spec-value">0,0,0,1</div>
+            <div class="spec-name">Elemento / Pseudoelemento</div>
+            <div class="spec-ex"><code>p · ::before</code></div>
+          </div>
+        </div>
+
+        <p class="note"><code>!important</code> anula cualquier especificidad, pero su uso excesivo hace el código difícil de mantener.</p>
+
+        <h3> Unidades de Medida</h3>
+        <div class="table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr><th>Unidad</th><th>Tipo</th><th>Descripción</th><th>Ejemplo</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>px</code></td>
+                <td>Absoluta</td>
+                <td>Píxeles. Medida fija, independiente del contexto.</td>
+                <td><code>font-size: 16px;</code></td>
+              </tr>
+              <tr>
+                <td><code>em</code></td>
+                <td>Relativa</td>
+                <td>Relativa al <code>font-size</code> del elemento padre.</td>
+                <td><code>margin: 1.5em;</code></td>
+              </tr>
+              <tr>
+                <td><code>rem</code></td>
+                <td>Relativa</td>
+                <td>Relativa al <code>font-size</code> del elemento raíz (<code>html</code>). Más predecible.</td>
+                <td><code>padding: 1rem;</code></td>
+              </tr>
+              <tr>
+                <td><code>%</code></td>
+                <td>Relativa</td>
+                <td>Porcentaje respecto al elemento contenedor.</td>
+                <td><code>width: 50%;</code></td>
+              </tr>
+              <tr>
+                <td><code>vw / vh</code></td>
+                <td>Relativa</td>
+                <td>1% del ancho / alto del viewport.</td>
+                <td><code>height: 100vh;</code></td>
+              </tr>
+              <tr>
+                <td><code>fr</code></td>
+                <td>Flexible</td>
+                <td>Fracción del espacio disponible (solo en Grid).</td>
+                <td><code>grid-template-columns: 1fr 2fr;</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3> Flexbox (Conceptos Básicos)</h3>
+        <p><strong>Flexbox</strong> (Flexible Box Layout) es un modelo de diseño unidimensional que distribuye el espacio entre ítems en un contenedor, ya sea en fila o columna.</p>
+        <pre class="code-block"><code><span class="cm">/* Contenedor flex */</span>
+<span class="cs">.contenedor</span> {
+  <span class="cp">display</span>: <span class="cv">flex</span>;
+  <span class="cp">flex-direction</span>: <span class="cv">row</span>;          <span class="cm">/* row | column | row-reverse | column-reverse */</span>
+  <span class="cp">justify-content</span>: <span class="cv">space-between</span>; <span class="cm">/* alineación eje principal */</span>
+  <span class="cp">align-items</span>: <span class="cv">center</span>;           <span class="cm">/* alineación eje cruzado */</span>
+  <span class="cp">flex-wrap</span>: <span class="cv">wrap</span>;              <span class="cm">/* permitir salto de línea */</span>
+  <span class="cp">gap</span>: <span class="cv">16px</span>;
+}
+
+<span class="cm">/* Ítem flex */</span>
+<span class="cs">.item</span> {
+  <span class="cp">flex</span>: <span class="cv">1</span>;                       <span class="cm">/* flex-grow flex-shrink flex-basis */</span>
+  <span class="cp">align-self</span>: <span class="cv">flex-start</span>;        <span class="cm">/* sobreescribe align-items para este ítem */</span>
+}</code></pre>
+
+        <h3>📱 Media Queries (Responsividad)</h3>
+        <p>Las <strong>media queries</strong> permiten aplicar estilos condicionales según las características del dispositivo: ancho de pantalla, orientación, resolución, etc. Son la base del diseño responsivo.</p>
+        <pre class="code-block"><code><span class="cm">/* Estilos para pantallas menores a 768px (móvil) */</span>
+<span class="ck">@media</span> (max-width: 768px) {
+  <span class="cs">.contenedor</span> {
+    <span class="cp">flex-direction</span>: <span class="cv">column</span>;
+    <span class="cp">padding</span>: <span class="cv">16px</span>;
+  }
+  <span class="cs">nav ul</span> {
+    <span class="cp">display</span>: <span class="cv">none</span>;
+  }
+}
+
+<span class="cm">/* Estilos para tablets (768px – 1024px) */</span>
+<span class="ck">@media</span> (min-width: 768px) and (max-width: 1024px) {
+  <span class="cs">.grid</span> {
+    <span class="cp">grid-template-columns</span>: <span class="cv">repeat(2, 1fr)</span>;
+  }
+}
+
+<span class="cm">/* Preferencia de modo oscuro del sistema */</span>
+<span class="ck">@media</span> (prefers-color-scheme: dark) {
+  <span class="cs">body</span> {
+    <span class="cp">background</span>: <span class="cv">#111</span>;
+    <span class="cp">color</span>: <span class="cv">#eee</span>;
+  }
+}</code></pre>
+
+        <h3> Transiciones y Animaciones</h3>
+        <p>CSS permite crear efectos de movimiento sin JavaScript mediante <code>transition</code> (cambio suave entre estados) y <code>animation</code> (movimiento definido con <code>@keyframes</code>).</p>
+        <pre class="code-block"><code><span class="cm">/* Transición */</span>
+<span class="cs">.boton</span> {
+  <span class="cp">background</span>: <span class="cv">#007bff</span>;
+  <span class="cp">transition</span>: <span class="cv">background 0.3s ease, transform 0.2s ease</span>;
+}
+<span class="cs">.boton:hover</span> {
+  <span class="cp">background</span>: <span class="cv">#0056b3</span>;
+  <span class="cp">transform</span>: <span class="cv">scale(1.05)</span>;
+}
+
+<span class="cm">/* Animación con @keyframes */</span>
+<span class="ck">@keyframes</span> fadeIn {
+  <span class="cv">from</span> { <span class="cp">opacity</span>: <span class="cv">0</span>; <span class="cp">transform</span>: <span class="cv">translateY(20px)</span>; }
+  <span class="cv">to</span>   { <span class="cp">opacity</span>: <span class="cv">1</span>; <span class="cp">transform</span>: <span class="cv">translateY(0)</span>; }
+}
+<span class="cs">.elemento</span> {
+  <span class="cp">animation</span>: <span class="cv">fadeIn 0.6s ease forwards</span>;
+}</code></pre>
+
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>Documentación HTML &amp; CSS · Programación Web</p>
+      <p class="footer-meta">Creado con HTML semántico &amp; CSS sin frameworks</p>
+    </div>
+  </footer>
+
+  <script>
+
+    function toggleNav() {
+      const nav = document.getElementById('mobileNav');
+      nav.classList.toggle('open');
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    const sections = document.querySelectorAll('.doc-section');
+    const navLinks = document.querySelectorAll('.main-nav a');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.main-nav a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>

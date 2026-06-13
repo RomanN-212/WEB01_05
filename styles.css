@@ -1,0 +1,716 @@
+/* ============================================================
+   1. VARIABLES Y RESET
+   ============================================================ */
+:root {
+  /* Paleta principal — negro profundo + grises neutros minimalistas */
+  --color-accent:     #d9d9da;   
+  --color-accent-dk:  #b8b8ba;   
+  --color-accent-2:   #c8c8cb;   
+  --color-bg:         #050505;   
+  --color-surface:    #121212;   
+  --color-surface-2:  #1d1d1e;   
+  --color-text:       #e4e4e5;   
+  --color-muted:      #8a8a8c;   
+  --color-border:     #2a2a2b;   
+  --color-code-bg:    #0c0c0d;   
+  --color-green:      #a8a8aa;   
+  --color-red:        #6e6e70;   
+
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'Lora', Georgia, serif;
+  --font-code:    'Source Code Pro', 'Courier New', monospace;
+
+  --header-h:   64px;
+  --max-width:  1140px;
+  --radius:     6px;
+  --radius-lg:  12px;
+
+  --sp-xs: 0.5rem;
+  --sp-sm: 1rem;
+  --sp-md: 2rem;
+  --sp-lg: 4rem;
+  --sp-xl: 7rem;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   2. TIPOGRAFÍA BASE
+   ============================================================ */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #4b0303;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-top: var(--sp-lg);
+  margin-bottom: var(--sp-sm);
+  color: var(--color-accent);
+}
+
+p {
+  margin-bottom: var(--sp-sm);
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent-dk);
+  text-decoration: underline;
+}
+
+code {
+  font-family: var(--font-code);
+  font-size: 0.85em;
+  background: var(--color-surface-2);
+  color: var(--color-accent);
+  padding: 2px 6px;
+  border-radius: 3px;
+  word-break: break-word;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* ============================================================
+   3. NAVEGACIÓN / HEADER
+   ============================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: var(--header-h);
+  background: rgba(14, 14, 14, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--sp-md);
+  height: 100%;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #860303;
+  letter-spacing: 0.03em;
+}
+
+.logo-bracket {
+  color: var(--color-accent);
+}
+
+.main-nav ul {
+  display: flex;
+  gap: var(--sp-md);
+  list-style: none;
+}
+
+.main-nav a {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: var(--radius);
+  transition: background 0.2s;
+}
+
+.nav-toggle:hover {
+  background: var(--color-surface-2);
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: var(--header-h);
+  left: 0;
+  right: 0;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 999;
+  padding: var(--sp-sm) var(--sp-md);
+}
+
+.mobile-nav.open {
+  display: block;
+}
+
+.mobile-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-xs);
+}
+
+.mobile-nav a {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-text);
+  display: block;
+  padding: var(--sp-xs) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mobile-nav a:hover {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+/* ============================================================
+   4. HERO
+   ============================================================ */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  min-height: 55vh;
+  padding: var(--sp-xl) var(--sp-md);
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(245,197,24,0.12) 0%, transparent 70%),
+    var(--color-bg);
+}
+
+.hero-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--sp-sm);
+}
+
+.hero h1 {
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #fff 30%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero h1 .amp {
+  color: var(--color-accent);
+  -webkit-text-fill-color: var(--color-accent);
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-muted);
+  max-width: 480px;
+  margin: var(--sp-sm) auto 0;
+}
+
+.hero-decoration {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.deco-tag {
+  font-family: var(--font-code);
+  font-size: clamp(4rem, 8vw, 9rem);
+  font-weight: 600;
+  opacity: 0.03;
+  color: var(--color-accent);
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* ============================================================
+   5. SECCIONES
+   ============================================================ */
+.doc-section {
+  padding: var(--sp-xl) var(--sp-md);
+}
+
+.doc-section.alt-bg {
+  background: var(--color-surface);
+}
+
+.doc-section > *,
+.content-block {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-label {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  max-width: var(--max-width);
+  margin: 0 auto var(--sp-xs);
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  max-width: var(--max-width);
+  margin: 0 auto var(--sp-xs);
+}
+
+.section-intro {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--color-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  max-width: var(--max-width);
+  margin: 0 auto var(--sp-md);
+}
+
+.content-block {
+  padding-top: var(--sp-md);
+}
+
+.content-block > h3:first-child {
+  margin-top: 0;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--sp-sm);
+  margin: var(--sp-md) 0;
+}
+
+.feature-list li {
+  background: var(--color-surface-2);
+  border-left: 3px solid var(--color-accent);
+  padding: var(--sp-sm) var(--sp-sm) var(--sp-sm) calc(var(--sp-sm) + 6px);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 0.95rem;
+}
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--color-accent);
+  color: #000;
+  padding: 3px 10px;
+  border-radius: 20px;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.note {
+  background: rgba(245, 197, 24, 0.08);
+  border: 1px solid rgba(245, 197, 24, 0.3);
+  border-radius: var(--radius);
+  padding: var(--sp-sm);
+  font-size: 0.9rem;
+  color: var(--color-accent);
+  margin-top: var(--sp-md);
+}
+
+/* ============================================================
+   6. TABLAS
+   ============================================================ */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;           
+  margin: var(--sp-md) 0;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  min-width: 540px;
+}
+
+.doc-table thead tr {
+  background: var(--color-accent);
+  color: #000;
+}
+
+.doc-table thead th {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  text-align: left;
+  color: #000;
+}
+
+.doc-table tbody tr {
+  border-bottom: 1px solid var(--color-border);
+  transition: background 0.15s;
+}
+
+.doc-table tbody tr:hover {
+  background: rgba(245, 197, 24, 0.05);
+}
+
+.doc-table td {
+  padding: 11px 16px;
+  vertical-align: top;
+  color: var(--color-text);
+}
+
+.group-row td {
+  background: var(--color-surface-2);
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  padding: 8px 16px;
+}
+
+.video-badge {
+  display: inline-block;
+  background: rgba(76, 175, 116, 0.12);
+  color: var(--color-green);
+  border: 1px solid rgba(76, 175, 116, 0.3);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 3px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.video-badge:hover {
+  background: rgba(76, 175, 116, 0.25);
+}
+
+.no-video {
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+
+/* ============================================================
+   7. BLOQUE DE CÓDIGO
+   ============================================================ */
+.code-block {
+  background: var(--color-code-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-md);
+  overflow-x: auto;
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  margin: var(--sp-md) 0;
+}
+
+.code-block code {
+  background: none;
+  padding: 0;
+  color: var(--color-text);
+}
+
+.cm  { color: #6f6d76; font-style: italic; }
+.ct  { color: #c47a73; }                     
+.ca  { color: var(--color-accent); }         
+.cv  { color: var(--color-green); }          
+.cs  { color: var(--color-accent); }         
+.cp  { color: var(--color-accent-2); }       
+.ck  { color: #b48ee0; }                     
+.cn  { color: var(--color-accent); }        
+
+/* ============================================================
+   8. DIAGRAMA DE SINTAXIS CSS
+   ============================================================ */
+.syntax-diagram {
+  background: var(--color-code-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-md) var(--sp-lg);
+  font-family: var(--font-code);
+  font-size: 1rem;
+  line-height: 2;
+  margin: var(--sp-md) 0;
+  position: relative;
+}
+
+.syntax-line {
+  display: block;
+}
+
+.syn-selector  { color: var(--color-accent); font-weight: 700; }
+.syn-brace     { color: #fff; }
+.syn-property  { color: var(--color-accent-2); }
+.syn-colon     { color: #fff; }
+.syn-value     { color: var(--color-green); }
+.syn-semi      { color: #fff; }
+
+.syntax-legend {
+  display: flex;
+  gap: var(--sp-md);
+  margin-top: var(--sp-sm);
+  flex-wrap: wrap;
+}
+
+.leg-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.leg-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.sel-dot  { background: var(--color-accent); }
+.prop-dot { background: var(--color-accent-2); }
+.val-dot  { background: var(--color-green); }
+
+/* ============================================================
+   9. TARJETAS DE ESPECIFICIDAD
+   ============================================================ */
+.specificity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--sp-sm);
+  margin: var(--sp-md) 0;
+}
+
+.spec-card {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-md);
+  text-align: center;
+  transition: transform 0.2s, border-color 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.spec-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.spec-card[data-level="a"]::before { background: var(--color-red); }
+.spec-card[data-level="b"]::before { background: var(--color-accent); }
+.spec-card[data-level="c"]::before { background: var(--color-accent-2); }
+.spec-card[data-level="d"]::before { background: var(--color-green); }
+
+.spec-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-accent);
+}
+
+.spec-value {
+  font-family: var(--font-code);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: var(--sp-xs);
+}
+
+.spec-name {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: var(--sp-xs);
+}
+
+.spec-ex code {
+  font-size: 0.78rem;
+}
+
+/* ============================================================
+   10. FOOTER
+   ============================================================ */
+.site-footer {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: var(--sp-md);
+  text-align: center;
+}
+
+.footer-inner p {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-bottom: 4px;
+}
+
+.footer-meta {
+  font-size: 0.75rem !important;
+}
+
+/* ============================================================
+   11. RESPONSIVE — MEDIA QUERIES
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .main-nav {
+    display: none; 
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .hero h1 {
+    font-size: 4rem;
+  }
+
+  .deco-tag {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --sp-lg: 3rem;
+    --sp-xl: 4rem;
+  }
+
+  .doc-section {
+    padding: var(--sp-lg) var(--sp-sm);
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  .syntax-diagram {
+    padding: var(--sp-sm);
+    font-size: 0.8rem;
+  }
+
+  .code-block {
+    font-size: 0.78rem;
+    padding: var(--sp-sm);
+  }
+
+  .specificity-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .feature-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   12. ACCESIBILIDAD — foco visible
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
